@@ -1,30 +1,28 @@
-!***********************************************************************
-!  MIS41160 Optimisation in Business - Job Shop Scheduling
+!  MIS41160 Optimisation in Business - Job Shop Scheduling (Team Id : 21)
 !  BASE MODEL  (Gueret, Prins & Sevaux 1999, Section 7.3)
 !
-!  Each job (wallpaper) visits the machines in a fixed order.
-!  A machine can only work on one job at a time.
+!  Each job (wallpaper) visits the machines in a fixed order. A machine can only work on one job at a time.
 !  Goal: finish all jobs as early as possible (minimise the makespan).
 !
-!  Labels: [BASE] = unchanged from the book, [MOD] = book part we changed,
-!          [NEW] = added by our team.
+!  Labels: [BASE] = unchanged from the book, [MOD] = book part we changed, [NEW] = added by our team.
+!
 !  The model itself (variables, constraints, objective) is all [BASE].
 !  [NEW] here: the ft06 benchmark data (D3) and the DATA switch, used to
 !  test that the code reproduces a known optimum (55).
 !
 !  Run:   mosel exec Base_wallpaper_model.mos              (book case D1)
 !         mosel exec Base_wallpaper_model.mos DATA=D3      (ft06 benchmark)
-!***********************************************************************
+
 model "Wallpaper job shop - base"
   uses "mmxprs"
 
   parameters
-    DATA = "D1"          ! D1 = book case (3 x 3), D3 = ft06 (6 x 6)
+    DATA = "D1"          ! Setting the value as D1 will initialize the Book Case of 3X3, Setting value as D3 will initialize the values for the extended set i.e. ft06 Benchmark test.
   end-parameters
 
-  ! --- size of the problem depends on the data set -------------------
+  ! size of the problem depends on the data set
   declarations
-    NJ, NK: integer      ! number of jobs, max operations per job
+    NJ, NK: integer      ! NJ = number of jobs, NK = max operations per job
   end-declarations
 
   if DATA = "D1" then
@@ -46,10 +44,10 @@ model "Wallpaper job shop - base"
   if DATA = "D1" then
     MACH:: ["Blue",   "Yellow", "",
             "Green",  "Blue",   "Yellow",
-            "Yellow", "Blue",   "Green"]
+            "Yellow", "Blue",   "Green"] ! Machines On the run
     DUR::  [45, 10,  0,
             10, 20, 34,
-            28, 12, 17]
+            28, 12, 17] ! Duration of each job
   else
     MACH:: ["M3","M1","M2","M4","M6","M5",
             "M2","M3","M5","M6","M1","M4",
@@ -68,7 +66,7 @@ model "Wallpaper job shop - base"
   ! [BASE] Big-M = sum of all durations (no schedule can be longer than this)
   BIGM := sum(j in JOBS, k in OPS) DUR(j,k)
 
-  ! --- [BASE] decision variables ---------------------------------------
+  ! [BASE] decision variables
   declarations
     start: array(JOBS,OPS) of mpvar                     ! start time of each operation
     y: dynamic array(JOBS,OPS,JOBS,OPS) of mpvar        ! 1 if (j1,k1) goes before (j2,k2)

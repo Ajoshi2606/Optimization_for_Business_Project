@@ -1,5 +1,4 @@
-!***********************************************************************
-!  MIS41160 Optimisation in Business - Job Shop Scheduling
+!  MIS41160 Optimisation in Business - Job Shop Scheduling (Team Id : 21)
 !  EXTENDED MODEL: commercial wallcovering plant, 8 jobs x 5 machines
 !
 !  Built on the book's base model and extended with:
@@ -45,7 +44,7 @@ model "Wallpaper job shop - extended"
     SETUP: array(JOBS,JOBS) of real     ! setup on M2 when job j2 follows j1
   end-declarations
 
-  ! --- data (D2) -----------------------------------------------------------
+  !  data (D2) --
   !          route of each job (machine, duration)
   MACH:: ["M1","M2","M4","M5","",     ! J1 Royal Damask Gold
           "M1","M3","M2","M5","",     ! J2 Nordic Geometric Pastel
@@ -79,20 +78,19 @@ model "Wallpaper job shop - extended"
                  8, 10, 12,  6,  8,  8,  0,  8,    ! from J7
                  6, 14,  6, 10,  8, 12,  8,  0]    ! from J8
 
-  ! --- scenario changes (data only, the model stays the same) -------------
+  ! scenario changes (data only, the model stays the same) 
   forall(j1 in JOBS, j2 in JOBS) SETUP(j1,j2) := SETUP(j1,j2) * SETUP_FACTOR
   if RUSH_JOB > 0 then
     DUE(RUSH_JOB) := RUSH_DUE
   end-if
 
-  ! [MOD] Big-M: book uses the sum of durations; we add the latest release,
-  ! the largest setup for every M2 operation, and the maintenance window
+  ! [MOD] Big-M: book uses the sum of durations; we add the latest release, the largest setup for every M2 operation, and the maintenance window
   BIGM := sum(j in JOBS, k in OPS) DUR(j,k) +
           max(j in JOBS) REL(j) +
           max(j1 in JOBS, j2 in JOBS) SETUP(j1,j2) * sum(j in JOBS, k in OPS | MACH(j,k) = "M2") 1 +
           (MAINT_E - MAINT_S)
 
-  ! --- decision variables ----------------------------------------------------
+  ! decision variables 
   declarations
     start: array(JOBS,OPS) of mpvar                   ! [BASE] start times
     y: dynamic array(JOBS,OPS,JOBS,OPS) of mpvar      ! [BASE] order on a machine
@@ -108,15 +106,15 @@ model "Wallpaper job shop - extended"
 
   Lmax is_free          ! lateness can be negative (job early)
 
-  ! --- [BASE] route order ------------------------------------------------------
+  ! [BASE] route order
   forall(j in JOBS, k in 1..4 | DUR(j,k+1) > 0)
     start(j,k+1) >= start(j,k) + DUR(j,k)
 
-  ! --- [NEW] release dates: first operation not before the order arrives ----
+  ! [NEW] release dates: first operation not before the order arrives 
   forall(j in JOBS)
     start(j,1) >= REL(j)
 
-  ! --- [MOD] disjunctions, with setup time when the machine is M2 -----------
+  ! [MOD] disjunctions, with setup time when the machine is M2 
   forall(j1 in JOBS, j2 in JOBS, k1 in OPS, k2 in OPS |
          j1 < j2 and DUR(j1,k1) > 0 and DUR(j2,k2) > 0 and MACH(j1,k1) = MACH(j2,k2)) do
     if MACH(j1,k1) = "M2" then
@@ -132,7 +130,7 @@ model "Wallpaper job shop - extended"
     start(j1,k1) >= start(j2,k2) + DUR(j2,k2) + S21 - BIGM * y(j1,k1,j2,k2)
   end-do
 
-  ! --- [NEW] M4 maintenance: finish before it starts OR start after it ends --
+  !  [NEW] M4 maintenance: finish before it starts OR start after it ends 
   if USE_MAINT then
     forall(j in JOBS, k in OPS | MACH(j,k) = "M4") do
       create(z(j,k))
@@ -142,7 +140,7 @@ model "Wallpaper job shop - extended"
     end-do
   end-if
 
-  ! --- [NEW] completion, tardiness, lateness; [BASE] makespan ----------------
+  !  [NEW] completion, tardiness, lateness; [BASE] makespan 
   forall(j in JOBS) do
     C(j) = sum(k in OPS | DUR(j,k) > 0 and (k = 5 or DUR(j,k+1) = 0)) (start(j,k) + DUR(j,k))
     Cmax >= C(j)
@@ -150,7 +148,7 @@ model "Wallpaper job shop - extended"
     Lmax >= C(j) - DUE(j)
   end-do
 
-  ! --- objectives ---------------------------------------------------------------
+  !  objectives 
   Makespan := Cmax
   Penalty  := sum(j in JOBS) W(j) * T(j)
   Lateness := Lmax
@@ -165,19 +163,19 @@ model "Wallpaper job shop - extended"
   else                           Obj2 := Penalty
   end-if
 
-  ! --- stage 1: primary objective --------------------------------------------
+  !  stage 1: primary objective 
   minimise(Obj1)
   BEST := getobjval
   writeln("Stage 1: min ", PRIMARY, " = ", BEST)
 
-  ! --- stage 2: secondary objective, primary kept at its best value ----------
+  !  stage 2: secondary objective primary kept at its best value 
   if SECONDARY <> "none" then
     FixObj1 := Obj1 <= BEST + 0.0001
     minimise(Obj2)
     writeln("Stage 2: min ", SECONDARY, " = ", getobjval)
   end-if
 
-  ! --- output --------------------------------------------------------------------
+  !  output 
   ! (solution values are rounded to whole minutes for printing)
   writeln 
   writeln("Makespan     = ", round(getsol(Cmax)), " min")

@@ -1,6 +1,6 @@
 {
     "console": {
-        "@expanded": true,
+        "@expanded": false,
         "@height": 541,
         "@maximized": "false",
         "json()": {
@@ -30,8 +30,8 @@
                         "tooltip": "Base_wallpaper_model.mos - Stopped",
                         "output": {
                             "id": "output92950",
-                            "width": 1496,
-                            "height": 509,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Mosel",
                                 "debug": false,
@@ -61,8 +61,8 @@
                         "tooltip": "Extended_wallpaper_model.mos - Stopped",
                         "output": {
                             "id": "output874281",
-                            "width": 1496,
-                            "height": 509,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Mosel",
                                 "debug": false,
@@ -92,8 +92,8 @@
                         "tooltip": "Extended_wallpaper_model.py - Stopped",
                         "output": {
                             "id": "output895542",
-                            "width": 1496,
-                            "height": 509,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Python (local)",
                                 "debug": false,
@@ -154,7 +154,6 @@
     },
     "panecycle": {
         "json()": [
-            "tab1",
             "tab7"
         ]
     },
@@ -210,80 +209,17 @@
             ]
         }
     },
+    "recentfiles": {
+        "json()": []
+    },
     "tabs": {
         "json()": {
-            "focus": "/Base_wallpaper_model.mos",
+            "focus": null,
             "meta": {
-                "accessList": [
-                    "tab1",
-                    "tab6",
-                    "tab4"
-                ]
+                "accessList": []
             },
             "name": "pane0",
-            "nodes": [
-                {
-                    "type": "tab",
-                    "name": "tab1",
-                    "path": "/Base_wallpaper_model.mos",
-                    "className": [
-                        "tab1",
-                        "focus"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1794488277550
-                        },
-                        "filter": true,
-                        "title": "Base_wallpaper_model.mos",
-                        "tooltip": "/Base_wallpaper_model.mos",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab4",
-                    "path": "/Extended_wallpaper_model.mos",
-                    "className": [
-                        "tab4"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1794488494583
-                        },
-                        "filter": true,
-                        "title": "Extended_wallpaper_model.mos",
-                        "tooltip": "/Extended_wallpaper_model.mos",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                },
-                {
-                    "type": "tab",
-                    "name": "tab6",
-                    "path": "/Extended_wallpaper_model.py",
-                    "className": [
-                        "tab6"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1794486184468
-                        },
-                        "filter": true,
-                        "title": "Extended_wallpaper_model.py",
-                        "tooltip": "/Extended_wallpaper_model.py",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
-                }
-            ],
+            "nodes": [],
             "skin": "editor_tab",
             "skinset": "default",
             "type": "pane"
