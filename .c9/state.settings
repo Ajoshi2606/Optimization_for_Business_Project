@@ -11,14 +11,14 @@
         }
     },
     "console": {
-        "@expanded": true,
+        "@expanded": false,
         "@height": 514,
         "@maximized": "false",
         "json()": {
             "meta": {
                 "accessList": [
-                    "tab4",
-                    "tab2"
+                    "tab2",
+                    "tab4"
                 ]
             },
             "name": "pane1",
@@ -40,8 +40,8 @@
                         "tooltip": "Base_wallpaper_model.mos - Stopped",
                         "output": {
                             "id": "output256740",
-                            "width": 1568,
-                            "height": 482,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Mosel",
                                 "debug": false,
@@ -52,15 +52,14 @@
                         }
                     },
                     "editorType": "output",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
                     "name": "tab4",
                     "path": "",
                     "className": [
-                        "tab4",
-                        "focus"
+                        "tab4"
                     ],
                     "document": {
                         "changed": false,
@@ -72,18 +71,19 @@
                         "tooltip": "Extended_wallpaper_model.mos - Stopped",
                         "output": {
                             "id": "output753962",
-                            "width": 1568,
-                            "height": 482,
+                            "width": 0,
+                            "height": 0,
                             "config": {
                                 "runner": "Mosel",
                                 "debug": false,
                                 "command": "Extended_wallpaper_model.mos ",
-                                "toolbar": true
+                                "toolbar": true,
+                                "name": ""
                             }
                         }
                     },
                     "editorType": "output",
-                    "active": true
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -125,12 +125,12 @@
         "@installed": true
     },
     "od": {
-        "@last-run-config": "path:Extended_wallpaper_model.mos"
+        "@last-run-config": "path:Base_wallpaper_model.mos"
     },
     "panecycle": {
         "json()": [
-            "tab4",
-            "tab3"
+            "tab1",
+            "tab2"
         ]
     },
     "panels": {
@@ -187,11 +187,11 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/Extended_wallpaper_model.mos",
+            "focus": "/Base_wallpaper_model.mos",
             "meta": {
                 "accessList": [
-                    "tab3",
-                    "tab1"
+                    "tab1",
+                    "tab3"
                 ]
             },
             "name": "pane0",
@@ -201,7 +201,8 @@
                     "name": "tab1",
                     "path": "/Base_wallpaper_model.mos",
                     "className": [
-                        "tab1"
+                        "tab1",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -214,15 +215,14 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": false
+                    "active": true
                 },
                 {
                     "type": "tab",
                     "name": "tab3",
                     "path": "/Extended_wallpaper_model.mos",
                     "className": [
-                        "tab3",
-                        "focus"
+                        "tab3"
                     ],
                     "document": {
                         "changed": false,
@@ -235,7 +235,7 @@
                         "ace": {}
                     },
                     "editorType": "ace",
-                    "active": true
+                    "active": false
                 }
             ],
             "skin": "editor_tab",

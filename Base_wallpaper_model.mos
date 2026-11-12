@@ -38,7 +38,7 @@ model "Wallpaper job shop - base"
     DUR:  array(JOBS,OPS) of real       ! duration (0 = operation does not exist)
   end-declarations
 
-  ! --- data: row j = route of job j ------------------------------------
+  !  data: row j = route of job j 
   ! [BASE] D1 = book data (Blue, Green, Yellow printing machines)
   ! [NEW]  D3 = ft06 benchmark (Fisher & Thompson 1963)
   if DATA = "D1" then
@@ -73,11 +73,11 @@ model "Wallpaper job shop - base"
     Cmax: mpvar                                         ! makespan
   end-declarations
 
-  ! --- [BASE] (P) route order: next operation starts after the previous one ends
+  ! [BASE] (P) route order: next operation starts after the previous one ends
   forall(j in JOBS, k in 1..NK-1 | DUR(j,k+1) > 0)
     start(j,k+1) >= start(j,k) + DUR(j,k)
 
-  ! --- [BASE] (D) disjunctions: two operations on the same machine cannot overlap
+  !  [BASE] (D) disjunctions: two operations on the same machine cannot overlap
   forall(j1 in JOBS, j2 in JOBS, k1 in OPS, k2 in OPS |
          j1 < j2 and DUR(j1,k1) > 0 and DUR(j2,k2) > 0 and MACH(j1,k1) = MACH(j2,k2)) do
     create(y(j1,k1,j2,k2))
@@ -86,14 +86,14 @@ model "Wallpaper job shop - base"
     start(j1,k1) >= start(j2,k2) + DUR(j2,k2) - BIGM * y(j1,k1,j2,k2)
   end-do
 
-  ! --- [BASE] (C) makespan is at least the end of every operation ------
+  !  [BASE] (C) makespan is at least the end of every operation ------
   forall(j in JOBS, k in OPS | DUR(j,k) > 0)
     Cmax >= start(j,k) + DUR(j,k)
 
-  ! --- [BASE] solve: minimise the makespan -------------------------------
+  !  [BASE] solve: minimise the makespan 
   minimise(Cmax)
 
-  ! --- output ------------------------------------------------------------
+  !  output 
   writeln("Data set ", DATA, ":  makespan = ", getobjval)
   writeln("Job  Op  Machine   Start    End")
   forall(j in JOBS, k in OPS | DUR(j,k) > 0)
