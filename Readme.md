@@ -1,4 +1,4 @@
-# MIS41160 Team Assignment - Job Shop Scheduling (Wallpaper Printing)
+# MIS41160 Team Assignment - Job Shop Scheduling (Wallpaper Printing) Team Id : 21
 
 Our code for the MIS41160 team assignment. We started from the job shop model in
 Gueret, Prins and Sevaux (1999), Section 7.3, and extended it for a wallcovering plant.
