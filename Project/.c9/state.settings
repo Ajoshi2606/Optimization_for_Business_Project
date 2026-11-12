@@ -1,0 +1,300 @@
+{
+    "console": {
+        "@expanded": true,
+        "@height": 541,
+        "@maximized": "false",
+        "json()": {
+            "meta": {
+                "accessList": [
+                    "tab7",
+                    "tab3",
+                    "tab5"
+                ]
+            },
+            "name": "pane1",
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794488346052
+                        },
+                        "filter": true,
+                        "title": "Base_wallpaper_model.mos - Stopped",
+                        "tooltip": "Base_wallpaper_model.mos - Stopped",
+                        "output": {
+                            "id": "output92950",
+                            "width": 1496,
+                            "height": 509,
+                            "config": {
+                                "runner": "Mosel",
+                                "debug": false,
+                                "command": "Base_wallpaper_model.mos",
+                                "toolbar": true,
+                                "name": ""
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794488430274
+                        },
+                        "filter": true,
+                        "title": "Extended_wallpaper_model.mos - Stopped",
+                        "tooltip": "Extended_wallpaper_model.mos - Stopped",
+                        "output": {
+                            "id": "output874281",
+                            "width": 1496,
+                            "height": 509,
+                            "config": {
+                                "runner": "Mosel",
+                                "debug": false,
+                                "command": "Extended_wallpaper_model.mos",
+                                "toolbar": true,
+                                "name": ""
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab7",
+                    "path": "",
+                    "className": [
+                        "tab7"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794488519137
+                        },
+                        "filter": true,
+                        "title": "Extended_wallpaper_model.py - Stopped",
+                        "tooltip": "Extended_wallpaper_model.py - Stopped",
+                        "output": {
+                            "id": "output895542",
+                            "width": 1496,
+                            "height": 509,
+                            "config": {
+                                "runner": "Python (local)",
+                                "debug": false,
+                                "command": "Extended_wallpaper_model.py",
+                                "toolbar": true
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": true
+                }
+            ],
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
+        }
+    },
+    "ext": {
+        "counters": {
+            "@ace": 1,
+            "@acestatus": 1,
+            "@base-step-wizard": 2,
+            "@divider": 4,
+            "@document": 8,
+            "@editorswitch": 1,
+            "@fico.vdl.attributes-panel": 1,
+            "@fico.vdl.palette-panel": 1,
+            "@form": 4,
+            "@menu": 3,
+            "@menuitem": 8,
+            "@pane": 2,
+            "@session": 8,
+            "@tab": 8,
+            "@undoManager": 8,
+            "@welcome": 1
+        }
+    },
+    "findinfiles": {
+        "@console": "true",
+        "@matchcase": "false",
+        "@regex": "false",
+        "@scope": "selection",
+        "@wholeword": "false"
+    },
+    "local": {
+        "window": {
+            "@fullscreen": true
+        }
+    },
+    "menus": {
+        "@minimized": "false"
+    },
+    "nak": {
+        "@installed": true
+    },
+    "od": {
+        "@last-run-config": null
+    },
+    "panecycle": {
+        "json()": [
+            "tab1",
+            "tab7"
+        ]
+    },
+    "panels": {
+        "@active-left": "tree",
+        "@active-right": "none",
+        "@width-left": 252,
+        "commands.panel": {
+            "@enabled": "false",
+            "@name": "commands.panel"
+        },
+        "debugger": {
+            "@enabled": "true",
+            "@name": "debugger"
+        },
+        "fico.ide.language.mosel.modules-panel": {
+            "@enabled": "true",
+            "@name": "fico.ide.language.mosel.modules-panel"
+        },
+        "fico.om.sidebar": {
+            "@enabled": "true",
+            "@name": "fico.om.sidebar"
+        },
+        "fico.vdl.attributes-panel0": {
+            "@enabled": "false",
+            "@name": "fico.vdl.attributes-panel0"
+        },
+        "fico.vdl.palette-panel0": {
+            "@enabled": "false",
+            "@name": "fico.vdl.palette-panel0"
+        },
+        "mosel.profiler": {
+            "@enabled": "true",
+            "@name": "mosel.profiler"
+        },
+        "navigate": {
+            "@enabled": "false",
+            "@name": "navigate"
+        },
+        "outline": {
+            "@enabled": "true",
+            "@name": "outline"
+        },
+        "tree": {
+            "@enabled": "true",
+            "@name": "tree"
+        }
+    },
+    "projecttree": {
+        "expanded": {
+            "json()": [
+                "/"
+            ]
+        }
+    },
+    "tabs": {
+        "json()": {
+            "focus": "/Base_wallpaper_model.mos",
+            "meta": {
+                "accessList": [
+                    "tab1",
+                    "tab6",
+                    "tab4"
+                ]
+            },
+            "name": "pane0",
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab1",
+                    "path": "/Base_wallpaper_model.mos",
+                    "className": [
+                        "tab1",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794488277550
+                        },
+                        "filter": true,
+                        "title": "Base_wallpaper_model.mos",
+                        "tooltip": "/Base_wallpaper_model.mos",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/Extended_wallpaper_model.mos",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794488494583
+                        },
+                        "filter": true,
+                        "title": "Extended_wallpaper_model.mos",
+                        "tooltip": "/Extended_wallpaper_model.mos",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/Extended_wallpaper_model.py",
+                    "className": [
+                        "tab6"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794486184468
+                        },
+                        "filter": true,
+                        "title": "Extended_wallpaper_model.py",
+                        "tooltip": "/Extended_wallpaper_model.py",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                }
+            ],
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
+        }
+    },
+    "tree_selection": {
+        "json()": [
+            "/"
+        ]
+    },
+    "welcome": {
+        "@first": true
+    }
+}
