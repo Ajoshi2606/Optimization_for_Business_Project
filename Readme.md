@@ -60,9 +60,3 @@ Every part of the code has a label: [BASE] is unchanged from the book, [MOD] is 
 | Scenario B' | 283 | 5,560 | 93 |
 | Scenario C | 295 | 9,425 | 105 |
 | Scenario D | 295 | 6,655 | 125 |
-
-Note: there can be more than one optimal schedule, so your start times might differ from ours. The objective values should be the same.
-
-## Reference
-
-Gueret, C., Prins, C. and Sevaux, M. (1999) *Applications of Optimization with Xpress-MP*. Dash Optimization.
