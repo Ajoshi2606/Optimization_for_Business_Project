@@ -17,6 +17,7 @@
         "json()": {
             "meta": {
                 "accessList": [
+                    "tab4",
                     "tab2"
                 ]
             },
@@ -45,6 +46,38 @@
                                 "runner": "Mosel",
                                 "debug": false,
                                 "command": "Base_wallpaper_model.mos",
+                                "toolbar": true,
+                                "name": ""
+                            }
+                        }
+                    },
+                    "editorType": "output",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "",
+                    "className": [
+                        "tab4",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1794500408096
+                        },
+                        "filter": true,
+                        "title": "Extended_wallpaper_model.mos - Stopped",
+                        "tooltip": "Extended_wallpaper_model.mos - Stopped",
+                        "output": {
+                            "id": "output753962",
+                            "width": 1568,
+                            "height": 482,
+                            "config": {
+                                "runner": "Mosel",
+                                "debug": false,
+                                "command": "Extended_wallpaper_model.mos ",
                                 "toolbar": true
                             }
                         }
@@ -64,7 +97,7 @@
             "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 4,
+            "@document": 5,
             "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
@@ -72,9 +105,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 2,
-            "@session": 4,
-            "@tab": 4,
-            "@undoManager": 4,
+            "@session": 5,
+            "@tab": 5,
+            "@undoManager": 5,
             "@welcome": 1
         }
     },
@@ -96,8 +129,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab2"
+            "tab4",
+            "tab3"
         ]
     },
     "panels": {
@@ -194,7 +227,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1794498439215
+                            "timestamp": 1794499831263
                         },
                         "filter": true,
                         "title": "Extended_wallpaper_model.mos",
@@ -212,7 +245,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/Extended_wallpaper_model.mos"
+            "/CONTEXT.md"
         ]
     },
     "welcome": {
