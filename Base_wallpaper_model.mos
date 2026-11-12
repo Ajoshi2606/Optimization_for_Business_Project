@@ -6,6 +6,12 @@
 !  A machine can only work on one job at a time.
 !  Goal: finish all jobs as early as possible (minimise the makespan).
 !
+!  Labels: [BASE] = unchanged from the book, [MOD] = book part we changed,
+!          [NEW] = added by our team.
+!  The model itself (variables, constraints, objective) is all [BASE].
+!  [NEW] here: the ft06 benchmark data (D3) and the DATA switch, used to
+!  test that the code reproduces a known optimum (55).
+!
 !  Run:   mosel exec Base_wallpaper_model.mos              (book case D1)
 !         mosel exec Base_wallpaper_model.mos DATA=D3      (ft06 benchmark)
 !***********************************************************************
@@ -35,6 +41,8 @@ model "Wallpaper job shop - base"
   end-declarations
 
   ! --- data: row j = route of job j ------------------------------------
+  ! [BASE] D1 = book data (Blue, Green, Yellow printing machines)
+  ! [NEW]  D3 = ft06 benchmark (Fisher & Thompson 1963)
   if DATA = "D1" then
     MACH:: ["Blue",   "Yellow", "",
             "Green",  "Blue",   "Yellow",
@@ -57,21 +65,21 @@ model "Wallpaper job shop - base"
             3, 3, 9,10, 4, 1]
   end-if
 
-  ! Big-M = sum of all durations (no schedule can be longer than this)
+  ! [BASE] Big-M = sum of all durations (no schedule can be longer than this)
   BIGM := sum(j in JOBS, k in OPS) DUR(j,k)
 
-  ! --- decision variables ----------------------------------------------
+  ! --- [BASE] decision variables ---------------------------------------
   declarations
     start: array(JOBS,OPS) of mpvar                     ! start time of each operation
     y: dynamic array(JOBS,OPS,JOBS,OPS) of mpvar        ! 1 if (j1,k1) goes before (j2,k2)
     Cmax: mpvar                                         ! makespan
   end-declarations
 
-  ! --- (P) route order: next operation starts after the previous one ends
+  ! --- [BASE] (P) route order: next operation starts after the previous one ends
   forall(j in JOBS, k in 1..NK-1 | DUR(j,k+1) > 0)
     start(j,k+1) >= start(j,k) + DUR(j,k)
 
-  ! --- (D) disjunctions: two operations on the same machine cannot overlap
+  ! --- [BASE] (D) disjunctions: two operations on the same machine cannot overlap
   forall(j1 in JOBS, j2 in JOBS, k1 in OPS, k2 in OPS |
          j1 < j2 and DUR(j1,k1) > 0 and DUR(j2,k2) > 0 and MACH(j1,k1) = MACH(j2,k2)) do
     create(y(j1,k1,j2,k2))
@@ -80,11 +88,11 @@ model "Wallpaper job shop - base"
     start(j1,k1) >= start(j2,k2) + DUR(j2,k2) - BIGM * y(j1,k1,j2,k2)
   end-do
 
-  ! --- (C) makespan is at least the end of every operation -------------
+  ! --- [BASE] (C) makespan is at least the end of every operation ------
   forall(j in JOBS, k in OPS | DUR(j,k) > 0)
     Cmax >= start(j,k) + DUR(j,k)
 
-  ! --- solve -------------------------------------------------------------
+  ! --- [BASE] solve: minimise the makespan -------------------------------
   minimise(Cmax)
 
   ! --- output ------------------------------------------------------------
